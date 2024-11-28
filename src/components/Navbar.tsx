@@ -9,16 +9,18 @@ const Navbar = () => {
           <Link href="/">Home</Link>
         </li>
         <li>
+          {/* TODO(stjoseph): Make this into a dropdown */}
           <Link href="/about">About</Link>
         </li>
         <li>
-          <Link href="/prayer-times">Construction Plans</Link>
+          <Link href="/construction-plans">Construction Plans</Link>
         </li>
         <li>
-          <Link href="/prayer-times">Events</Link>
+          <Link href="/events">Events</Link>
         </li>
+        {/* TODO(stjoseph): Make this into a dropdown */}
         <li>
-          <Link href="/prayer-times">Programs</Link>
+          <Link href="/#">Programs</Link>
         </li>
         <li>
           <Link href="https://www.facebook.com/masjidaltazkiyah">Facebook</Link>
