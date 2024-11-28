@@ -34,7 +34,7 @@ const neededItems = items.map((item) => {
   return <li key={item}>{item}</li>;
 });
 
-const SundaySchool = () => {
+const FoodPantry = () => {
   return (
     <Layout>
       <main className={styles.main}>
@@ -89,4 +89,4 @@ const SundaySchool = () => {
   );
 };
 
-export default SundaySchool;
+export default FoodPantry;
