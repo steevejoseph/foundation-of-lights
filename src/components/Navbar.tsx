@@ -1,13 +1,22 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/navbar.module.css";
 import { env } from "src/env";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
+// Add icons to the library
+library.add(faFacebook, faWhatsapp);
 
 export const PAYPAL_URL = env.NEXT_PUBLIC_PAYPAL_URL;
 
 const Navbar = () => {
   const [aboutDropdown, setAboutDropdown] = useState(false);
   const [programsDropdown, setProgramsDropdown] = useState(false);
+  const [isClient, setIsClient] = useState(false); // State to track client-side rendering
 
   const toggleDropdown = (dropdown: string) => {
     if (dropdown === "about") {
@@ -15,6 +24,44 @@ const Navbar = () => {
     } else if (dropdown === "programs") {
       setProgramsDropdown((prev) => !prev);
     }
+  };
+
+  // Set the isClient state to true after the component mounts (client-side only)
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const renderIconsIfOnClient = (isClient: boolean) => {
+    if (!isClient) {
+      return null; // Return nothing during SSR (prevents flicker)
+    }
+
+    return (
+      <>
+        <li>
+          <Link
+            href="https://www.facebook.com/masjidaltazkiyah"
+            target="_blank"
+            passHref
+          >
+            <div className={styles.linkButton}>
+              <FontAwesomeIcon icon={["fab", "facebook"]} size="lg" />
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="https://chat.whatsapp.com/CDS2JpPOp2GLqeSMraMhoz"
+            target="_blank"
+            passHref
+          >
+            <div className={styles.linkButton}>
+              <FontAwesomeIcon icon={["fab", "whatsapp"]} size="lg" />
+            </div>
+          </Link>
+        </li>
+      </>
+    );
   };
 
   return (
@@ -66,26 +113,11 @@ const Navbar = () => {
           )}
         </li>
         <li>
-          <Link
-            href="https://www.facebook.com/masjidaltazkiyah"
-            target="_blank"
-          >
-            Facebook
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="https://chat.whatsapp.com/CDS2JpPOp2GLqeSMraMhoz"
-            target="_blank"
-          >
-            Whatsapp Group
-          </Link>
-        </li>
-        <li>
           <Link href={PAYPAL_URL} target="_blank">
             Donate
           </Link>
         </li>
+        {renderIconsIfOnClient(isClient)}
       </ul>
     </nav>
   );
