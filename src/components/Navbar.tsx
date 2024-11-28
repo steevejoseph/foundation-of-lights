@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/navbar.module.css";
+import { env } from "src/env";
+
+export const PAYPAL_URL = env.NEXT_PUBLIC_PAYPAL_URL;
 
 const Navbar = () => {
   const [aboutDropdown, setAboutDropdown] = useState(false);
@@ -79,10 +82,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            href={`https://www.paypal.com/donate?business=eric%40foundationoflights.org`}
-            target="_blank"
-          >
+          <Link href={PAYPAL_URL} target="_blank">
             Donate
           </Link>
         </li>
