@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const renderIconsIfOnClient = (isClient: boolean) => {
     if (!isClient) {
-      return null; // Return nothing during SSR (prevents flicker)
+      return null;
     }
 
     return (
@@ -46,7 +46,10 @@ const Navbar = () => {
             passHref
           >
             <div className={styles.linkButton}>
-              <FontAwesomeIcon icon={["fab", "facebook"]} size="lg" />
+              <span className={styles.mobileText}>Facebook</span>
+              <span className={styles.desktopIcon}>
+                <FontAwesomeIcon icon={["fab", "facebook"]} size="lg" />
+              </span>
             </div>
           </Link>
         </li>
@@ -57,7 +60,10 @@ const Navbar = () => {
             passHref
           >
             <div className={styles.linkButton}>
-              <FontAwesomeIcon icon={["fab", "whatsapp"]} size="lg" />
+              <span className={styles.mobileText}>WhatsApp Group</span>
+              <span className={styles.desktopIcon}>
+                <FontAwesomeIcon icon={["fab", "whatsapp"]} size="lg" />
+              </span>
             </div>
           </Link>
         </li>
@@ -74,7 +80,7 @@ const Navbar = () => {
       >
         <span className={styles.hamburger}></span>
       </button>
-      <ul className={isMenuOpen ? styles.active : ""}>
+      <ul className={`${isMenuOpen ? styles.active : ""}`}>
         <li>
           <Link href="/">Home</Link>
         </li>

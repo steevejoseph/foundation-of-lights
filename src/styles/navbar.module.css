@@ -87,6 +87,10 @@
 .hamburger::before { top: -8px; }
 .hamburger::after { bottom: -8px; }
 
+.mobileText {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navbar {
     margin-left: auto;
@@ -127,5 +131,13 @@
 
   .navbar ul li {
     padding: 8px 0;
+  }
+
+  .mobileText {
+    display: inline;
+  }
+
+  .desktopIcon {
+    display: none;
   }
 }
