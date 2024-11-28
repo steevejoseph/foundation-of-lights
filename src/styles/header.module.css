@@ -6,6 +6,7 @@
   color: #ffffff;
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .logo {
@@ -22,4 +23,18 @@
 
 .logo img {
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    flex: 1;
+  }
+  
+  .logo h1 {
+    font-size: 1.2rem;
+  }
 }

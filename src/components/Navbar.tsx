@@ -17,6 +17,7 @@ const Navbar = () => {
   const [aboutDropdown, setAboutDropdown] = useState(false);
   const [programsDropdown, setProgramsDropdown] = useState(false);
   const [isClient, setIsClient] = useState(false); // State to track client-side rendering
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDropdown = (dropdown: string) => {
     if (dropdown === "about") {
@@ -66,7 +67,14 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <ul>
+      <button
+        className={styles.menuButton}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle navigation menu"
+      >
+        <span className={styles.hamburger}></span>
+      </button>
+      <ul className={isMenuOpen ? styles.active : ""}>
         <li>
           <Link href="/">Home</Link>
         </li>
