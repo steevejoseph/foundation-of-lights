@@ -9,16 +9,24 @@ const Navbar = () => {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/about">About Us</Link>
+          <Link href="/about">About</Link>
         </li>
         <li>
-          <Link href="/prayer-times">Prayer Times</Link>
+          <Link href="/prayer-times">Construction Plans</Link>
         </li>
         <li>
-          <Link href="/contact">Contact</Link>
+          <Link href="/prayer-times">Events</Link>
         </li>
         <li>
-          <Link href="/donate">Donate</Link>
+          <Link href="/prayer-times">Programs</Link>
+        </li>
+        <li>
+          <Link href="https://www.facebook.com/masjidaltazkiyah">Facebook</Link>
+        </li>
+        <li>
+          <Link href="https://chat.whatsapp.com/CDS2JpPOp2GLqeSMraMhoz">
+            Whatsapp Group
+          </Link>
         </li>
       </ul>
     </nav>
