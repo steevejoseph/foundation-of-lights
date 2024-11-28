@@ -1,3 +1,3 @@
-export default function About() {
-  return <>home page</>;
+export default function Contact() {
+  return <>contact page</>;
 }

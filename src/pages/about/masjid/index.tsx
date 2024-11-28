@@ -1,3 +1,3 @@
-export default function About() {
-  return <>home page</>;
+export default function Masjid() {
+  return <>masjid page</>;
 }
