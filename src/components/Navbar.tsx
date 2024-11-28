@@ -63,11 +63,27 @@ const Navbar = () => {
           )}
         </li>
         <li>
-          <Link href="https://www.facebook.com/masjidaltazkiyah">Facebook</Link>
+          <Link
+            href="https://www.facebook.com/masjidaltazkiyah"
+            target="_blank"
+          >
+            Facebook
+          </Link>
         </li>
         <li>
-          <Link href="https://chat.whatsapp.com/CDS2JpPOp2GLqeSMraMhoz">
+          <Link
+            href="https://chat.whatsapp.com/CDS2JpPOp2GLqeSMraMhoz"
+            target="_blank"
+          >
             Whatsapp Group
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`https://www.paypal.com/donate?business=eric%40foundationoflights.org`}
+            target="_blank"
+          >
+            Donate
           </Link>
         </li>
       </ul>
