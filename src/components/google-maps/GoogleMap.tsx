@@ -6,8 +6,8 @@ import {
 } from "@vis.gl/react-google-maps";
 import { env } from "src/env";
 
-const apiKey = env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-const mapId = env.NEXT_PUBLIC_GOOGLE_MAPS_API_MAP_ID;
+const apiKey = env.GOOGLE_MAPS_API_KEY;
+const mapId = env.GOOGLE_MAPS_API_KEY;
 
 type Poi = { key: string; location: google.maps.LatLngLiteral };
 
