@@ -1,16 +1,42 @@
 import Link from "next/link";
+import { useState } from "react";
 import styles from "../styles/navbar.module.css";
 
 const Navbar = () => {
+  const [aboutDropdown, setAboutDropdown] = useState(false);
+  const [programsDropdown, setProgramsDropdown] = useState(false);
+
+  const toggleDropdown = (dropdown: string) => {
+    if (dropdown === "about") {
+      setAboutDropdown((prev) => !prev);
+    } else if (dropdown === "programs") {
+      setProgramsDropdown((prev) => !prev);
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <ul>
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
-          {/* TODO(stjoseph): Make this into a dropdown */}
-          <Link href="/about">About</Link>
+        {/* About Dropdown */}
+        <li
+          className={styles.dropdown}
+          onMouseEnter={() => toggleDropdown("about")}
+          onMouseLeave={() => toggleDropdown("about")}
+        >
+          <span>About</span>
+          {aboutDropdown && (
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <Link href="/about/imam">About Imam</Link>
+              </li>
+              <li>
+                <Link href="/about/masjid">About Masjid</Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
           <Link href="/construction-plans">Construction Plans</Link>
@@ -18,9 +44,23 @@ const Navbar = () => {
         <li>
           <Link href="/events">Events</Link>
         </li>
-        {/* TODO(stjoseph): Make this into a dropdown */}
-        <li>
-          <Link href="/#">Programs</Link>
+        {/* Programs Dropdown */}
+        <li
+          className={styles.dropdown}
+          onMouseEnter={() => toggleDropdown("programs")}
+          onMouseLeave={() => toggleDropdown("programs")}
+        >
+          <span>Programs</span>
+          {programsDropdown && (
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <Link href="/sunday-school">Sunday School</Link>
+              </li>
+              <li>
+                <Link href="/food-pantry">Food Pantry</Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
           <Link href="https://www.facebook.com/masjidaltazkiyah">Facebook</Link>
