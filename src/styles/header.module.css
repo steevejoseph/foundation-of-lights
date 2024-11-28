@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004080;
+  color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo img {
+  border-radius: 50%;
+}

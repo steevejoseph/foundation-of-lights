@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #00796b;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLinks a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background: url('/images/masjid-tazkiah-front.png') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.heroButton {
+  background: #00796b;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.about, .events, .contact {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

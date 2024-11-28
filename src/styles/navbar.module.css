@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #004080;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #ffffff;
+  font-weight: bold;
+}
