@@ -5,37 +5,58 @@ import { PAYPAL_URL } from "src/components/Navbar";
 const Donate = () => {
   return (
     <Layout>
-      <div
-        className="donate-container"
-        style={{
-          //   flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-        }}
-      >
-        <h2>Donations</h2>
-        <p>
-          Masjid Tazkiah relies on community donations to cover operation costs,
-          maintenance costs, and ongoing improvements to the building.
-          InshaAllah, we would like to create an improved and expanded
-          functional spaces to meet the needs of our growing community. May
-          Allah (SWT) reward you for your generous donations! Please make check
-          payable to Foundation of lights Inc. Donations can be placed in the
-          Masjid donation box or can be given directly or can be charged on
-          credit card machine located inside the masjid. You can also mail your
-          donation to Foundation of lights Inc. directly: Foundation of Lights
-          120 Floral St. Ocoee, FL 34761 May Allah reward you for your kindness
-          and support. JazakAllahu Khayran! “Giving away something in charity
-          does not cause any decrease in a person’s wealth, but increases it
-          instead. The person who adopts humility for the sake of Allah is
-          exalted in ranks by Him.” (Sahih Muslim)
-        </p>
-        <button className="rounded border border-blue-500 bg-transparent px-4 py-2 font-semibold text-blue-700 hover:border-transparent hover:bg-blue-500 hover:text-white">
-          <Link href={PAYPAL_URL} target="_blank">
-            Donate using Paypal
+      <div className="mx-auto max-w-3xl px-4 py-12">
+        <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">
+          Support Our Masjid
+        </h2>
+        <div className="prose prose-lg mx-auto mb-12 leading-relaxed text-gray-600">
+          <p>
+            Masjid Tazkiah relies on community donations to cover operation
+            costs, maintenance costs, and ongoing improvements to the building.
+            InshaAllah, we would like to create an improved and expanded
+            functional spaces to meet the needs of our growing community.
+          </p>
+
+          <p className="mt-4">
+            May Allah (SWT) reward you for your generous donations!
+          </p>
+
+          <div className="mt-8 rounded-lg bg-gray-50 p-6 shadow-sm">
+            <h3 className="mb-4 text-xl font-semibold">Ways to Donate</h3>
+            <ul className="list-disc space-y-2 pl-6">
+              <li>Make checks payable to: Foundation of lights Inc.</li>
+              <li>Use the donation box inside the Masjid</li>
+              <li>Credit card payments available inside the Masjid</li>
+              <li>
+                Mail donations to:
+                <br />
+                Foundation of Lights
+                <br />
+                120 Floral St.
+                <br />
+                Ocoee, FL 34761
+              </li>
+            </ul>
+          </div>
+
+          <blockquote className="my-8 border-l-4 border-blue-500 pl-4 italic text-gray-700">
+            &quot;Giving away something in charity does not cause any decrease
+            in a person&apos;s wealth, but increases it instead. The person who
+            adopts humility for the sake of Allah is exalted in ranks by
+            Him.&quot;
+            <span className="text-sm">(Sahih Muslim)</span>
+          </blockquote>
+        </div>
+
+        <div className="text-center">
+          <Link
+            href={PAYPAL_URL}
+            target="_blank"
+            className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition duration-200 hover:bg-blue-700"
+          >
+            Donate via PayPal
           </Link>
-        </button>
+        </div>
       </div>
     </Layout>
   );
