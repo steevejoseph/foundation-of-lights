@@ -1,36 +1,30 @@
 .title {
   text-align: center;
   font-size: 2.5rem;
-  color: #333;
-  margin: 2rem 0;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  color: #2d3748;
 }
-
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background-color: #4a90e2;  /* You can change this color to match your theme */
-}
-
 
 .container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem;
 }
 
-/* For desktop screens */
 @media (min-width: 768px) {
   .container {
     flex-direction: row;
+  }
+
+  .imageContainer {
+    flex: 1;
+  }
+
+  .textContainer {
+    flex: 1;
   }
 }
 
@@ -41,6 +35,8 @@
 .image {
   width: 100%;
   height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
 }
 
 .textContainer {
@@ -49,4 +45,48 @@
 
 .section {
   margin: 0 0 2em 0;
-} 
+}
+
+.accordionRoot {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordionItem {
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.accordionTrigger {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+}
+
+.accordionTrigger::after {
+  display: none;
+}
+
+.accordionContent {
+  padding: 0.5rem 0;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.accordionContent p {
+  margin: 0.5rem 0;
+}
+
+.accordionTrigger:hover {
+  color: #4299e1;
+}
+ 
