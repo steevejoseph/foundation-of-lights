@@ -23,10 +23,29 @@ const Footer = () => {
             fontSize: "14px",
           }}
         >
-          <p>Foundation of Lights</p>
-          <p>Masjid Tazkiah</p>
-          <p>120 Floral St,</p>
-          <p>Ocoee, FL 34761</p>
+          <h3
+            style={{
+              fontSize: "24px",
+              fontWeight: "600",
+              marginBottom: "20px",
+              color: "#fff",
+            }}
+          >
+            Foundation of Lights
+          </h3>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "8px", // Adds consistent spacing between address lines
+              color: "#fff",
+            }}
+          >
+            <p>Masjid Tazkiah</p>
+            <p>120 Floral St,</p>
+            <p>Ocoee, FL 34761</p>
+          </div>
         </div>
 
         <div
