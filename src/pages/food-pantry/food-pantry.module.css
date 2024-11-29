@@ -54,8 +54,12 @@
 
 .neededItems h2,
 .hours h2 {
+  font-size: 2rem;
   color: #333;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
 }
 
 .neededItems ul {
@@ -79,6 +83,7 @@
 .hours p {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .contact {
