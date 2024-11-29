@@ -12,8 +12,10 @@ const Home = () => {
       </Head>
       <main className={styles.main}>
         <section className={styles.hero}>
-          <h1>Welcome to Masjid Tazkiah</h1>
-          <p>Your community center for spiritual growth.</p>
+          <div className={styles.heroContent}>
+            <h1>Welcome to Masjid Tazkiah</h1>
+            <p>Your community center for spiritual growth.</p>
+          </div>
         </section>
         <section className={styles.about}>
           {/* <h2>About Us</h2>
