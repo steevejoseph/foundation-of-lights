@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "../styles/navbar.module.css";
@@ -7,13 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-
-// Add icons to the library
-library.add(faFacebook, faWhatsapp);
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export const PAYPAL_URL = env.NEXT_PUBLIC_PAYPAL_URL;
 
 const Navbar = () => {
+  useEffect(() => {
+    library.add(faFacebook, faWhatsapp, faBars);
+  }, []);
+
   const [aboutDropdown, setAboutDropdown] = useState(false);
   const [programsDropdown, setProgramsDropdown] = useState(false);
   const [isClient, setIsClient] = useState(false); // State to track client-side rendering
@@ -78,7 +82,7 @@ const Navbar = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle navigation menu"
       >
-        <span className={styles.hamburger}></span>
+        <FontAwesomeIcon icon={faBars} className="text-2xl" />
       </button>
       <ul className={`${isMenuOpen ? styles.active : ""}`}>
         <li>
