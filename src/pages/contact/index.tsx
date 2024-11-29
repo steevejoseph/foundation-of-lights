@@ -1,4 +1,5 @@
 import Layout from "src/components/Layout";
+import MyForm from "src/components/forms/contact-form";
 
 const Contact = () => {
   return (
@@ -6,34 +7,32 @@ const Contact = () => {
       <div
         className="contact-container"
         style={{
-          flex: 1,
-          flexDirection: "row",
-          justifyContent: "space-evenly",
+          display: "flex",
+          gap: "2rem",
+          padding: "2rem",
         }}
       >
-        <div className="contact-info">
-          <strong>Contact</strong>
+        <div
+          className="contact-info"
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Contact</h1>
           <p> Feel free to contact us with any questions بارك الله فيك</p>
-          <strong></strong>
-          <p></p>
-          <strong>Imam Ibrahim Habach</strong>
-          <p>Email habach44@gmail.com</p>
+          <strong>Imam</strong>
+          <p>Ibrahim Habach</p>
+
+          <strong>Email</strong>
+          <p> habach44@gmail.com</p>
           <strong>Phone</strong>
           <p> (407) 592-5000</p>
         </div>
-        <div
-          className="contact-form"
-          style={{
-            flex: 1,
-            flexDirection: "column",
-            justifyContent: "space-around",
-          }}
-        >
-          <form action="#">
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <textarea name="" id="" placeholder="Message"></textarea>
-          </form>
+        <div className="contact-form" style={{ width: "50%" }}>
+          <MyForm />
         </div>
       </div>
     </Layout>
