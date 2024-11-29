@@ -1,5 +1,47 @@
 import Layout from "src/components/Layout";
 
+const imamExperience = [
+  {
+    years: "2003-present",
+    title: "Founder, Imam, Director, Board Member",
+    org: "Foundation of Lights Masjidu Tazkia",
+    location: "Ocoee, FL",
+  },
+  {
+    years: "1994-2003",
+    title: "Imam, Teacher and Council Member",
+    org: "Islamic Society of Central Florida",
+    location: "Orlando, FL",
+    details:
+      "Established full time school and three new Masjids under the Umbrella of one organization",
+  },
+  {
+    years: "1991-1994",
+    title: "Teacher and Assistant Imam",
+    org: "Al-Rahma school, Al-Haq Masjed and Berlitz language center",
+    location: "Baltimore",
+  },
+  {
+    years: "1991-1993",
+    title: "Guest Imam",
+    org: "ISB",
+    details: "Led Taraweeh Prayer in Ramadan",
+  },
+  {
+    years: "1985-1990",
+    title: "Director",
+    org: "Quran Memorization Institute",
+    location: "Damascus, Syria",
+    details: "Graduated 20 new Hafez annually",
+  },
+  {
+    years: "1983-1990",
+    title: "Imam and Khateeb",
+    org: "Masjed Lala Basha",
+    details: "1500 Attendance",
+  },
+];
+
 const Imam = () => {
   return (
     <Layout>
@@ -50,47 +92,7 @@ const Imam = () => {
               Experience
             </h2>
             <div className="space-y-4">
-              {[
-                {
-                  years: "2003-present",
-                  title: "Founder, Imam, Director, Board Member",
-                  org: "Foundation of Lights Masjidu Tazkia",
-                  location: "Ocoee, FL",
-                },
-                {
-                  years: "1994-2003",
-                  title: "Imam, Teacher and Council Member",
-                  org: "Islamic Society of Central Florida",
-                  location: "Orlando, FL",
-                  details:
-                    "Established full time school and three new Masjids under the Umbrella of one organization",
-                },
-                {
-                  years: "1991-1994",
-                  title: "Teacher and Assistant Imam",
-                  org: "Al-Rahma school, Al-Haq Masjed and Berlitz language center",
-                  location: "Baltimore",
-                },
-                {
-                  years: "1991-1993",
-                  title: "Guest Imam",
-                  org: "ISB",
-                  details: "Led Taraweeh Prayer in Ramadan",
-                },
-                {
-                  years: "1985-1990",
-                  title: "Director",
-                  org: "Quran Memorization Institute",
-                  location: "Damascus, Syria",
-                  details: "Graduated 20 new Hafez annually",
-                },
-                {
-                  years: "1983-1990",
-                  title: "Imam and Khateeb",
-                  org: "Masjed Lala Basha",
-                  details: "1500 Attendance",
-                },
-              ].map((exp, index) => (
+              {imamExperience.map((exp, index) => (
                 <div key={index} className="border-l-4 border-gray-200 pl-4">
                   <div className="font-medium text-gray-800">{exp.years}</div>
                   <div className="text-gray-700">{exp.title}</div>
