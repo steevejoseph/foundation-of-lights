@@ -1,0 +1,52 @@
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 2rem 0;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #4a90e2;  /* You can change this color to match your theme */
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* For desktop screens */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.section {
+  margin: 0 0 2em 0;
+} 
