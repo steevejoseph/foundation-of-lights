@@ -10,7 +10,7 @@ import styles from "./contact-form.module.css";
 
 // Define a Zod validation schema
 const schema = z.object({
-  name: z.string().min(3, "name must be at least 3 characters"),
+  name: z.string().min(3, "Name must be at least 3 characters"),
   email: z.string().email("Please enter a valid email"),
   //   age: z.number().min(18, "You must be at least 18 years old"),
   message: z.string().min(10, "Message must be at least 10 characters"),
