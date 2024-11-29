@@ -1,0 +1,23 @@
+.contact_container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.contact_info {
+  flex: 1;
+}
+
+.contact_form {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .contact_container {
+    flex-direction: column;
+  }
+
+  .contact_info {
+    margin-bottom: 2rem;
+  }
+} 

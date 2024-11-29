@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// components/MyForm.tsx
 
 import React from "react";
-import { useForm, type SubmitHandler, FieldValues } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import styles from "src/styles/forms/contact-form.module.css";
+import styles from "./contact-form.module.css";
 
 // Define a Zod validation schema
 const schema = z.object({
