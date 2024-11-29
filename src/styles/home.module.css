@@ -24,9 +24,9 @@
   color: white;
   text-align: center;
   padding: 2rem;
-  height: 60vh;
-  min-height: 400px;
-  max-height: 600px;
+  height: 45vh;
+  min-height: 300px;
+  max-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
