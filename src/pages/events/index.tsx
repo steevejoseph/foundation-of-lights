@@ -4,6 +4,7 @@ import styles from "./events.module.css";
 import { type GetStaticProps } from "next";
 import fs from "fs";
 import path from "path";
+import Link from "next/link";
 
 interface EventsProps {
   currentEvents: string[];
@@ -60,7 +61,7 @@ const Events = ({ currentEvents, pastEvents }: EventsProps) => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.calendarLink}>
-          <a href="/events/calendar">View Events Calendar →</a>
+          <Link href="/events/calendar">View Events Calendar →</Link>
         </div>
         <section className={styles.currentEvents}>
           <h2 className={styles.sectionTitle}>Current Events</h2>
