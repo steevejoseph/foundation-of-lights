@@ -11,6 +11,8 @@ const Header = () => {
           alt="Masjid Tazkiah"
           width={60}
           height={60}
+          style={{ width: "auto", height: "100%" }}
+          priority
         />
         <h1>Masjid Tazkiah</h1>
       </div>

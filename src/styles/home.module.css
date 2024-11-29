@@ -19,10 +19,18 @@
 }
 
 .hero {
-  background: url('/images/masjid-tazkiah-front.png') no-repeat center center/cover;
+  background: url('/images/masjid-tazkiah-front.png') no-repeat center center;
+  background-size: cover;
   color: white;
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 2rem;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .heroButton {
