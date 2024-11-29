@@ -29,7 +29,7 @@ const Home = () => {
             <div className={styles.infoCard}>
               <h2>Construction Plans</h2>
               <Image
-                src="/images/construction/construction-1.jpg"
+                src="/images/construction/1_Foundation Of LIghts_04.05.24.jpg"
                 alt="Construction Plans"
                 width={300}
                 height={200}
