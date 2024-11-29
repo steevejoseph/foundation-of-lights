@@ -59,6 +59,9 @@ const Events = ({ currentEvents, pastEvents }: EventsProps) => {
   return (
     <Layout>
       <div className={styles.container}>
+        <div className={styles.calendarLink}>
+          <a href="/events/calendar">View Events Calendar →</a>
+        </div>
         <section className={styles.currentEvents}>
           <h2 className={styles.sectionTitle}>Current Events</h2>
           <div className={styles.eventGrid}>
