@@ -9,13 +9,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export const PAYPAL_URL = env.NEXT_PUBLIC_PAYPAL_URL;
 
 const Navbar = () => {
   useEffect(() => {
-    library.add(faFacebook, faWhatsapp, faBars);
+    library.add(faFacebook, faWhatsapp, faBars, faXmark);
   }, []);
 
   const [aboutDropdown, setAboutDropdown] = useState(false);
@@ -82,7 +82,10 @@ const Navbar = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle navigation menu"
       >
-        <FontAwesomeIcon icon={faBars} className="text-2xl" />
+        <FontAwesomeIcon
+          icon={isMenuOpen ? faXmark : faBars}
+          className="text-2xl"
+        />
       </button>
       <ul className={`${isMenuOpen ? styles.active : ""}`}>
         <li>
