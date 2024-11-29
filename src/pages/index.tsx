@@ -82,6 +82,13 @@ const Home = () => {
 
             <div className={styles.infoCard}>
               <h2>Contact Us</h2>
+              <Image
+                src="/images/contact.jpg"
+                alt="Food Pantry"
+                width={300}
+                height={200}
+                className={styles.cardImage}
+              />
               <div className={styles.contactInfo}>
                 <p>120 Floral St, Ocoee, FL 34761</p>
                 <p>Phone: (407) 592-5000</p>
