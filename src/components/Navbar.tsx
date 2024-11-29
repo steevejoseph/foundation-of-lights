@@ -84,7 +84,7 @@ const Navbar = () => {
       >
         <FontAwesomeIcon
           icon={isMenuOpen ? faXmark : faBars}
-          className="text-2xl"
+          className={`text-2xl ${styles.menuIcon}`}
         />
       </button>
       <ul className={`${isMenuOpen ? styles.active : ""}`}>
