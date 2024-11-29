@@ -1,14 +1,10 @@
 import Layout from "src/components/Layout";
+import "./about.css";
 
 export default function About() {
   return (
     <Layout>
-      <div
-        className="about-history"
-        style={{
-          margin: "2em",
-        }}
-      >
+      <div className="about-history about-section">
         <h2>History of Masjid Tazkiah</h2>
         <p>
           Masjid Tazkiah, a beautiful masjid nestled in the heart of Ocoee,
@@ -43,12 +39,7 @@ export default function About() {
         </p>
       </div>
 
-      <div
-        className="about-mission"
-        style={{
-          margin: "2em",
-        }}
-      >
+      <div className="about-mission about-section">
         <h2>Our Mission at Masjid Tazkiah</h2>
         <p>
           Our mission is to promote the teaching of Islam as a source of
@@ -60,12 +51,7 @@ export default function About() {
         </p>
       </div>
 
-      <div
-        className="about-vision"
-        style={{
-          margin: "2em",
-        }}
-      >
+      <div className="about-vision about-section">
         <h2>Our Vision</h2>
         <p>
           Our vision is to convey a clear perception and understanding of
