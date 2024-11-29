@@ -2,15 +2,44 @@ import Layout from "src/components/Layout";
 import Image from "next/image";
 import styles from "./construction-plans.module.css";
 import { useState } from "react";
+import { type GetStaticProps } from "next";
+import fs from "fs";
+import path from "path";
 
-const images = [
-  "/images/construction/plan1.jpg",
-  "/images/construction/plan2.jpg",
-  "/images/construction/plan3.jpg",
-  // Add more image paths as needed
-];
+interface ConstructionProps {
+  images: string[];
+}
 
-const ConstructionPlans = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const constructionDirectory = path.join(
+      process.cwd(),
+      "public/images/construction",
+    );
+    const hasDirectory = fs.existsSync(constructionDirectory);
+
+    const images = hasDirectory
+      ? fs
+          .readdirSync(constructionDirectory)
+          .filter((file) => /\.(jpg|jpeg|png)$/i.test(file))
+      : [];
+
+    return {
+      props: {
+        images,
+      },
+    };
+  } catch (error) {
+    console.error("Error reading construction directory:", error);
+    return {
+      props: {
+        images: [],
+      },
+    };
+  }
+};
+
+const ConstructionPlans = ({ images = [] }: ConstructionProps) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -26,29 +55,31 @@ const ConstructionPlans = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>Expansion of Masjid al-Tazkiah</h1>
 
-        <div className={styles.carouselContainer}>
-          <button
-            onClick={prevImage}
-            className={`${styles.carouselButton} ${styles.prev}`}
-          >
-            &#8249;
-          </button>
-          <div className={styles.imageWrapper}>
-            <Image
-              src={images[currentImage]}
-              alt={`Construction plan ${currentImage + 1}`}
-              width={800}
-              height={500}
-              className={styles.carouselImage}
-            />
+        {images.length > 0 && (
+          <div className={styles.carouselContainer}>
+            <button
+              onClick={prevImage}
+              className={`${styles.carouselButton} ${styles.prev}`}
+            >
+              &#8249;
+            </button>
+            <div className={styles.imageWrapper}>
+              <Image
+                src={`/images/construction/${images[currentImage]}`}
+                alt={`Construction plan ${currentImage + 1}`}
+                width={800}
+                height={500}
+                className={styles.carouselImage}
+              />
+            </div>
+            <button
+              onClick={nextImage}
+              className={`${styles.carouselButton} ${styles.next}`}
+            >
+              &#8250;
+            </button>
           </div>
-          <button
-            onClick={nextImage}
-            className={`${styles.carouselButton} ${styles.next}`}
-          >
-            &#8250;
-          </button>
-        </div>
+        )}
 
         <div className={styles.content}>
           <p>
