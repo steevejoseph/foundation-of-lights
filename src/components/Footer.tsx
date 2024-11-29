@@ -53,10 +53,30 @@ const Footer = () => {
           style={{
             width: "50%",
             flexDirection: "column",
+            gap: "8px",
           }}
         >
-          <p>About</p>
-          <Link href={"https://www.paypal.com/paypalme/foundationoflights"}>
+          <h4
+            style={{
+              fontSize: "20px",
+              fontWeight: "normal",
+              marginBottom: "16px",
+              color: "#fff",
+            }}
+          >
+            About
+          </h4>
+
+          <Link
+            href={"https://www.paypal.com/paypalme/foundationoflights"}
+            style={{
+              fontSize: "20px",
+              fontWeight: "normal",
+              color: "#fff",
+              textDecoration: "none",
+              display: "block",
+            }}
+          >
             Donate
           </Link>
         </div>
