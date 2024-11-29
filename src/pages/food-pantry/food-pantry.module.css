@@ -1,0 +1,101 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.mission {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.imageWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.infoSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.neededItems h2,
+.hours h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.neededItems ul {
+  list-style: none;
+  padding: 0;
+}
+
+.neededItems li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.neededItems li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #666;
+}
+
+.hours p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.contact {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .infoSection {
+    grid-template-columns: 1fr;
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+} 
