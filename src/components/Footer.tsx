@@ -7,15 +7,17 @@ const Footer = () => {
       <div
         className="info-container"
         style={{
+          display: "flex",
           flex: 1,
           flexDirection: "row",
           justifyContent: "space-between",
+          width: "100%",
         }}
       >
         <div
           className="info-address"
           style={{
-            flex: 1,
+            width: "50%",
             flexDirection: "column",
             justifyContent: "space-evenly",
             fontSize: "14px",
@@ -29,7 +31,10 @@ const Footer = () => {
 
         <div
           className="info-about-donate"
-          style={{ flex: 1, flexDirection: "column" }}
+          style={{
+            width: "50%",
+            flexDirection: "column",
+          }}
         >
           <p>About</p>
           <Link href={"https://www.paypal.com/paypalme/foundationoflights"}>
