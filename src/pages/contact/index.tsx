@@ -2,6 +2,7 @@ import Layout from "src/components/Layout";
 import MyForm from "src/components/forms/contact-form";
 import styles from "./contact.module.css";
 import Link from "next/link";
+import { env } from "src/env";
 
 const Contact = () => {
   return (
@@ -20,7 +21,7 @@ const Contact = () => {
           <p>
             Questions about membership? Please fill out the{" "}
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdoWitdV5vQG-k8xuelem6SwJaFvQaarYV8Qc9f_VbvFtn1Zw/viewform?usp=sharing"
+              href={env.NEXT_PUBLIC_MEMBERSHIP_FORM_URL}
               target="_blank"
               style={{ color: "#0066cc", textDecoration: "underline" }}
             >
@@ -30,7 +31,7 @@ const Contact = () => {
           <p>
             Questions about zakat? Please fill out the{" "}
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLScI2MA0k74JQK3IQFNwomY0wUNPmCz29CUG5YZeKqeozxcKqg/viewform?usp=sharing"
+              href={env.NEXT_PUBLIC_ZAKAT_FORM_URL}
               target="_blank"
               style={{ color: "#0066cc", textDecoration: "underline" }}
             >

@@ -1,6 +1,7 @@
 import Layout from "src/components/Layout";
 import Link from "next/link";
 import styles from "./forms.module.css";
+import { env } from "src/env";
 
 const Forms = () => {
   return (
@@ -15,7 +16,7 @@ const Forms = () => {
               form to get started.
             </p>
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdoWitdV5vQG-k8xuelem6SwJaFvQaarYV8Qc9f_VbvFtn1Zw/viewform?usp=sharing"
+              href={env.NEXT_PUBLIC_MEMBERSHIP_FORM_URL}
               className={styles.cardLink}
               target="_blank"
             >
@@ -27,7 +28,7 @@ const Forms = () => {
             <h2>Zakat Request Form</h2>
             <p>Apply for Zakat assistance by completing our request form.</p>
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLScI2MA0k74JQK3IQFNwomY0wUNPmCz29CUG5YZeKqeozxcKqg/viewform?usp=sharing"
+              href={env.NEXT_PUBLIC_ZAKAT_FORM_URL}
               className={styles.cardLink}
               target="_blank"
             >

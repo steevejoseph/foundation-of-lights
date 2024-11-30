@@ -21,6 +21,8 @@ export const env = createEnv({
     NEXT_PUBLIC_GOOGLE_MAPS_API_MAP_ID: z.string(),
     NEXT_PUBLIC_PAYPAL_URL: z.string(),
     NEXT_PUBLIC_GOOGLE_CALENDAR_URL: z.string(),
+    NEXT_PUBLIC_MEMBERSHIP_FORM_URL: z.string(),
+    NEXT_PUBLIC_ZAKAT_FORM_URL: z.string(),
   },
 
   /**
@@ -40,6 +42,9 @@ export const env = createEnv({
 
     NEXT_PUBLIC_GOOGLE_CALENDAR_URL:
       process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL,
+    NEXT_PUBLIC_MEMBERSHIP_FORM_URL:
+      process.env.NEXT_PUBLIC_MEMBERSHIP_FORM_URL,
+    NEXT_PUBLIC_ZAKAT_FORM_URL: process.env.NEXT_PUBLIC_ZAKAT_FORM_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
