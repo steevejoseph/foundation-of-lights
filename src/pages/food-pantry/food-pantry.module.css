@@ -99,6 +99,30 @@
   font-weight: bold;
 }
 
+.infoBanner {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  width: 100%;
+}
+
+.infoContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.infoBanner h2 {
+  display: none;  /* Hide the heading since it's redundant */
+}
+
+.infoContent p {
+  margin: 0;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .infoSection {
     grid-template-columns: 1fr;
@@ -110,5 +134,11 @@
 
   .title {
     font-size: 2rem;
+  }
+
+  .infoContent {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
   }
 } 
