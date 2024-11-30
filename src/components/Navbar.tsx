@@ -106,6 +106,9 @@ const Navbar = () => {
               <li>
                 <Link href="/about/masjid">About Masjid</Link>
               </li>
+              <li>
+                <Link href="/forms">Forms</Link>
+              </li>
             </ul>
           )}
         </li>
