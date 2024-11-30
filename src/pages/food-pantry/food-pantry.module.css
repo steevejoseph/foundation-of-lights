@@ -44,27 +44,35 @@
 }
 
 .infoSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
   background-color: #f5f5f5;
   padding: 2rem;
   border-radius: 8px;
 }
 
-.neededItems h2,
-.hours h2 {
-  font-size: 2rem;
+.neededItems {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.neededItems h2 {
+  text-align: center;
   color: #333;
   margin-bottom: 2rem;
-  text-align: center;
   padding-bottom: 1rem;
   border-bottom: 2px solid #ddd;
+  font-size: 2rem;
+  font-weight: normal;
 }
 
 .neededItems ul {
   list-style: none;
   padding: 0;
+  margin: 0 auto;
+  max-width: 300px;
 }
 
 .neededItems li {
@@ -91,6 +99,30 @@
   font-weight: bold;
 }
 
+.infoBanner {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  width: 100%;
+}
+
+.infoContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.infoBanner h2 {
+  display: none;  /* Hide the heading since it's redundant */
+}
+
+.infoContent p {
+  margin: 0;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .infoSection {
     grid-template-columns: 1fr;
@@ -102,5 +134,11 @@
 
   .title {
     font-size: 2rem;
+  }
+
+  .infoContent {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
   }
 } 

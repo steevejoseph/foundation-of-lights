@@ -20,6 +20,18 @@ const items = [
 const FoodPantry = () => {
   return (
     <Layout>
+      <div className={styles.infoBanner}>
+        <div className={styles.infoContent}>
+          <p>
+            <strong>Distribution:</strong> 2nd & 4th Saturday of each month,
+            8:00am to 10:00am
+          </p>
+          <p>
+            <strong>Contact:</strong> 407-421-9520
+          </p>
+        </div>
+      </div>
+
       <div className={styles.container}>
         <h1 className={styles.title}>Tazkiah Food Pantry</h1>
 
@@ -51,20 +63,13 @@ const FoodPantry = () => {
         </div>
 
         <div className={styles.infoSection}>
-          <div className={styles.neededItems}>
+          <div className={`${styles.neededItems} ${styles.centered}`}>
             <h2>Items Needed</h2>
             <ul>
               {items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          </div>
-
-          <div className={styles.hours}>
-            <h2>Food Pantry Hours</h2>
-            <p>2nd & 4th Saturday of each month</p>
-            <p>8:00am to 10:00am</p>
-            <p className={styles.contact}>Contact: 407-421-9520</p>
           </div>
         </div>
       </div>
