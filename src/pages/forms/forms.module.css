@@ -1,0 +1,68 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.formCard {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formCard h2 {
+  font-size: 1.75rem;
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.formCard p {
+  color: #4a5568;
+  flex-grow: 1;
+}
+
+.cardLink {
+  color: #004080;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+} 
