@@ -21,11 +21,10 @@ const FoodPantry = () => {
   return (
     <Layout>
       <div className={styles.infoBanner}>
-        <h2>Distribution Information</h2>
         <div className={styles.infoContent}>
           <p>
-            <strong>When:</strong> 2nd & 4th Saturday of each month, 8:00am to
-            10:00am
+            <strong>Distribution:</strong> 2nd & 4th Saturday of each month,
+            8:00am to 10:00am
           </p>
           <p>
             <strong>Contact:</strong> 407-421-9520
