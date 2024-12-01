@@ -49,8 +49,6 @@ export default function DonationForm() {
       purpose: currentPurpose,
     };
 
-    console.log("Order details before API call:", orderDetails);
-
     try {
       const response = await fetch("/api/paypal/create-order", {
         method: "POST",
