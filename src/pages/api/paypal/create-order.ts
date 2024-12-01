@@ -1,10 +1,11 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 
-import { PAYPAL_BASE_URL } from "./constants";
+import { getPaypalBaseUrl } from "./constants";
 import { getAccessToken } from "./token";
 import { getBaseUrl } from "src/utils/api";
 
 const BASE_URL = getBaseUrl();
+const PAYPAL_BASE_URL = getPaypalBaseUrl();
 
 export default async function handler(
   req: NextApiRequest,

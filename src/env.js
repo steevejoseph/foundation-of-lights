@@ -22,6 +22,7 @@ export const env = createEnv({
     NEXT_PUBLIC_GOOGLE_MAPS_API_MAP_ID: z.string(),
     NEXT_PUBLIC_PAYPAL_URL: z.string(),
     NEXT_PUBLIC_GOOGLE_CALENDAR_URL: z.string(),
+
     NEXT_PUBLIC_MEMBERSHIP_FORM_URL: z.string(),
     NEXT_PUBLIC_ZAKAT_FORM_URL: z.string(),
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: z.string(),
@@ -47,6 +48,7 @@ export const env = createEnv({
     NEXT_PUBLIC_MEMBERSHIP_FORM_URL:
       process.env.NEXT_PUBLIC_MEMBERSHIP_FORM_URL,
     NEXT_PUBLIC_ZAKAT_FORM_URL: process.env.NEXT_PUBLIC_ZAKAT_FORM_URL,
+
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
     NEXT_PAYPAL_CLIENT_SECRET: process.env.NEXT_PAYPAL_CLIENT_SECRET,
   },

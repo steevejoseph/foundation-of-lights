@@ -1,9 +1,11 @@
-import { PAYPAL_BASE_URL } from "./constants";
+import { env } from "~/env";
+import { getPaypalBaseUrl } from "./constants";
+
 import { type NextApiRequest, type NextApiResponse } from "next";
-import { env } from "src/env";
 
 const PAYPAL_CLIENT_ID = env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
-const PAYPAL_CLIENT_SECRET = process.env.NEXT_PAYPAL_CLIENT_SECRET!;
+const PAYPAL_CLIENT_SECRET = env.NEXT_PAYPAL_CLIENT_SECRET;
+const PAYPAL_BASE_URL = getPaypalBaseUrl();
 
 interface AccessTokenResponse {
   access_token: string;
