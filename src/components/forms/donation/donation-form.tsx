@@ -13,7 +13,7 @@ interface OrderResponse {
 enum DonationPurpose {
   BLANK = "",
   ZAKAT = "1) Zakat",
-  SADAQAH = "2) Sadaqah",
+  SADAQAH = "2) General Donation / Sadaqah",
   FOOD_PANTRY = "3) Food Pantry",
   CONSTRUCTION_FUND = "4) Construction Fund",
   OTHER = "Other (please specify in the note)",
@@ -120,12 +120,7 @@ export default function DonationForm() {
               <select
                 id="purpose"
                 value={purpose}
-                onChange={(e) => {
-                  const donationPurposeString = e.target
-                    .value as keyof typeof DonationPurpose;
-
-                  setPurpose(DonationPurpose[donationPurposeString]);
-                }}
+                onChange={(e) => setPurpose(e.target.value as DonationPurpose)}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 required
               >
