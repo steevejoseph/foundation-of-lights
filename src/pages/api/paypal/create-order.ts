@@ -2,12 +2,9 @@ import { type NextApiRequest, type NextApiResponse } from "next";
 
 import { PAYPAL_BASE_URL } from "./constants";
 import { getAccessToken } from "./token";
+import { getBaseUrl } from "src/utils/api";
 
-// TODO(stjoseph): Update this URL in env file,
-// Issue URL: https://github.com/steevejoseph/foundation-of-lights/issues/6
-// use NEXT_PUBLIC_BASE_URL instead of hardcoding
-// Determine the variable name from the env file
-const NEXT_PUBLIC_BASE_URL = "localhost:3000";
+const BASE_URL = getBaseUrl();
 
 export default async function handler(
   req: NextApiRequest,
@@ -43,8 +40,8 @@ export default async function handler(
         brand_name: "Foundation of Lights",
         landing_page: "BILLING",
         user_action: "PAY_NOW",
-        return_url: `${NEXT_PUBLIC_BASE_URL}/donation/success`,
-        cancel_url: `${NEXT_PUBLIC_BASE_URL}/donation/cancel`,
+        return_url: `${BASE_URL}/donation/success`,
+        cancel_url: `${BASE_URL}/donation/cancel`,
       },
     };
 
