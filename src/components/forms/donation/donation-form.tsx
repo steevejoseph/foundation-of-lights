@@ -21,9 +21,7 @@ enum DonationPurpose {
 
 export default function DonationForm() {
   const [amount, setAmount] = useState("1");
-  // TODO(stjoseph): Update this to be a dropdown, and remove the default value
-  // Issue URL: https://github.com/steevejoseph/foundation-of-lights/issues/5
-  const [purpose, setPurpose] = useState(DonationPurpose.CONSTRUCTION_FUND);
+  const [purpose, setPurpose] = useState(DonationPurpose.BLANK);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [note, setNote] = useState("");
