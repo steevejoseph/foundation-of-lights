@@ -4,6 +4,7 @@ import { PAYPAL_BASE_URL } from "./constants";
 import { getAccessToken } from "./token";
 
 // TODO(stjoseph): Update this URL in env file,
+// Issue URL: https://github.com/steevejoseph/foundation-of-lights/issues/6
 // use NEXT_PUBLIC_BASE_URL instead of hardcoding
 // Determine the variable name from the env file
 const NEXT_PUBLIC_BASE_URL = "localhost:3000";
