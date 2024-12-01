@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Layout from "src/components/Layout";
-import { PAYPAL_URL } from "src/components/Navbar";
+import DonationForm from "src/components/forms/donation/donation-form";
 
 const Donate = () => {
   return (
@@ -49,13 +48,7 @@ const Donate = () => {
         </div>
 
         <div className="text-center">
-          <Link
-            href={PAYPAL_URL}
-            target="_blank"
-            className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition duration-200 hover:bg-blue-700"
-          >
-            Donate via PayPal
-          </Link>
+          <DonationForm />
         </div>
       </div>
     </Layout>
