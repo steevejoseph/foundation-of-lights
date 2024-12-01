@@ -91,17 +91,22 @@ export default function DonationForm() {
             >
               Amount (USD)
             </label>
-            <input
-              type="number"
-              id="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Enter amount"
-              min="1"
-              step="0.01"
-              required
-            />
+            <div className="relative flex-1">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                $
+              </span>
+              <input
+                type="number"
+                id="amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="mt-1 block w-full rounded-md border-gray-300 pl-6 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                placeholder="Enter amount"
+                min="1"
+                step="0.01"
+                required
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
