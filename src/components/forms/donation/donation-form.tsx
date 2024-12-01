@@ -84,10 +84,10 @@ export default function DonationForm() {
       <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
         <h2 className="mb-6 text-2xl font-bold">Make a Donation</h2>
         <div className="space-y-4">
-          <div>
+          <div className="flex items-center gap-4">
             <label
               htmlFor="amount"
-              className="block text-sm font-medium text-gray-700"
+              className="w-24 text-left text-sm font-medium text-gray-700"
             >
               Amount (USD)
             </label>
@@ -104,10 +104,10 @@ export default function DonationForm() {
             />
           </div>
 
-          <div>
+          <div className="flex items-center gap-4">
             <label
               htmlFor="purpose"
-              className="block text-sm font-medium text-gray-700"
+              className="w-24 text-left text-sm font-medium text-gray-700"
             >
               Purpose
             </label>
