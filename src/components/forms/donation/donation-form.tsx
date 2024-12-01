@@ -4,11 +4,8 @@
 import { useState } from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { env } from "src/env";
-
-interface OrderResponse {
-  id: string;
-  status: string;
-}
+import { useRouter } from "next/router";
+import { type OrderResponse } from "./types";
 
 enum DonationPurpose {
   BLANK = "",
@@ -25,6 +22,7 @@ export default function DonationForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [note, setNote] = useState("");
+  const router = useRouter();
 
   const createOrder = async () => {
     try {
@@ -66,9 +64,24 @@ export default function DonationForm() {
       // Handle successful donation (e.g., show success message, redirect, etc.)
 
       console.log("Order data:", orderData);
+      await router.push({
+        pathname: "/donate/success",
+        query: {
+          transactionId: orderData.id,
+          status: orderData.status,
+          donor: JSON.stringify(orderData.payer),
+        },
+      });
     } catch (err: unknown) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       setError(`Failed to process donation: ${err}`);
+
+      await router.push({
+        pathname: "/donate/error",
+        query: {
+          error: JSON.stringify(err),
+        },
+      });
     } finally {
       setLoading(false);
     }
