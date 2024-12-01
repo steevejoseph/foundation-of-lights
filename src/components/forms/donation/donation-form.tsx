@@ -181,9 +181,7 @@ export default function DonationForm() {
             <PayPalButtons
               createOrder={createOrder}
               onApprove={onApprove}
-              disabled={
-                !amount || !purpose || purpose === DonationPurpose.BLANK
-              }
+              disabled={!amount || !purpose}
               style={{ layout: "vertical" }}
             />
           </div>
