@@ -1,4 +1,3 @@
-// components/DonationForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -15,6 +14,42 @@ enum DonationPurpose {
   CONSTRUCTION_FUND = "4) Construction Fund",
   OTHER = "Other (please specify in the note)",
 }
+
+export const createDonationEmailHtml = (
+  orderID: string,
+  orderAmount: string,
+) => {
+  return `
+        <h1>Donation Receipt for Foundation of Lights</h1>
+        <p>Paypal Transaction ID: ${orderID}</p>
+        <p>Amount: $${orderAmount}</p>
+        <p>Thank you for your donation!</p>
+      `;
+};
+
+const sendDonationReceiptEmail = async (orderData: OrderResponse) => {
+  const response = await fetch("/api/mailer/send-mail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      to: orderData.payer.email_address,
+      subject: "Donation Receipt",
+      html: createDonationEmailHtml(
+        orderData.id,
+        orderData.purchase_units[0]?.payments?.captures[0]?.amount.value ?? "",
+      ),
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = (await response.json()) as { details: string };
+    console.error("Email sending failed:", errorData);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+    throw new Error(errorData.details || "Failed to send email");
+  }
+};
 
 export default function DonationForm() {
   const [amount, setAmount] = useState("1");
@@ -69,7 +104,7 @@ export default function DonationForm() {
         query: {
           transactionId: orderData.id,
           status: orderData.status,
-          donor: JSON.stringify(orderData.payer),
+          payer: JSON.stringify(orderData.payer),
         },
       });
     } catch (err: unknown) {

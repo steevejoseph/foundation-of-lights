@@ -3,15 +3,15 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
-import { type Donor } from "src/components/forms/donation/types";
+import { type OrderResponse } from "src/components/forms/donation/types";
+type Payer = OrderResponse["payer"];
 
 const DonateSuccessPage: NextPage = () => {
   const router = useRouter();
 
-  const { transactionId, status, donor } = router.query;
+  const { transactionId, status, payer } = router.query;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const parsedDonor: Donor = donor ? JSON.parse(donor as string) : null;
+  const parsedPayer = payer ? (JSON.parse(payer as string) as Payer) : null;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -21,7 +21,7 @@ const DonateSuccessPage: NextPage = () => {
           className="mx-auto mb-6 text-6xl text-green-500"
         />
         <h1 className="mb-4 text-2xl font-bold text-gray-900">
-          Thank You {parsedDonor?.name.given_name} for Your Donation!
+          Thank You {parsedPayer?.name.given_name} for Your Donation!
         </h1>
         <p className="mb-8 text-gray-600">
           Your payment was processed successfully. We truly appreciate your
