@@ -24,6 +24,8 @@ export default function DonationForm() {
   const router = useRouter();
   const amountRef = useRef(amount);
   const purposeRef = useRef(purpose);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [scriptError, setScriptError] = useState<string | null>(null);
 
   useEffect(() => {
     amountRef.current = amount;
@@ -102,9 +104,23 @@ export default function DonationForm() {
       options={{
         clientId: env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
         currency: "USD",
+        components: "buttons",
+        intent: "capture",
+        onInit: () => setScriptLoaded(true),
+        onError: (err: ErrorEvent) => setScriptError(err.message),
       }}
     >
       <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
+        {scriptError && (
+          <div className="mb-4 text-sm text-red-600">
+            Failed to load payment system: {scriptError}
+          </div>
+        )}
+        {!scriptLoaded && (
+          <div className="mb-4 text-sm text-gray-600">
+            Loading payment system...
+          </div>
+        )}
         <h2 className="mb-6 text-2xl font-bold">Make a Donation</h2>
         <div className="space-y-4">
           <div className="flex items-center gap-4">
