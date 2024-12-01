@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 
-import { PAYPAL_BASE_URL } from "./constants";
+import { getPaypalBaseUrl } from "./constants";
 import { getAccessToken } from "./token";
 
 export default async function handler(
@@ -17,7 +17,7 @@ export default async function handler(
     const accessToken = await getAccessToken();
 
     const response = await fetch(
-      `${PAYPAL_BASE_URL}/v2/checkout/orders/${orderID}/capture`,
+      `${getPaypalBaseUrl()}/v2/checkout/orders/${orderID}/capture`,
       {
         method: "POST",
         headers: {
