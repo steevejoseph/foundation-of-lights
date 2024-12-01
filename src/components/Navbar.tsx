@@ -8,14 +8,18 @@ import { env } from "src/env";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faWhatsapp,
+  faPaypal,
+} from "@fortawesome/free-brands-svg-icons";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export const PAYPAL_URL = env.NEXT_PUBLIC_PAYPAL_URL;
 
 const Navbar = () => {
   useEffect(() => {
-    library.add(faFacebook, faWhatsapp, faBars, faXmark);
+    library.add(faFacebook, faWhatsapp, faBars, faXmark, faPaypal);
   }, []);
 
   const [aboutDropdown, setAboutDropdown] = useState(false);
@@ -67,6 +71,16 @@ const Navbar = () => {
               <span className={styles.mobileText}>WhatsApp Group</span>
               <span className={styles.desktopIcon}>
                 <FontAwesomeIcon icon={["fab", "whatsapp"]} size="lg" />
+              </span>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href={PAYPAL_URL} target="_blank" passHref>
+            <div className={styles.linkButton}>
+              <span className={styles.mobileText}>Paypal</span>
+              <span className={styles.desktopIcon}>
+                <FontAwesomeIcon icon={["fab", "paypal"]} size="lg" />
               </span>
             </div>
           </Link>
@@ -137,9 +151,7 @@ const Navbar = () => {
           )}
         </li>
         <li>
-          <Link href={PAYPAL_URL} target="_blank">
-            Donate
-          </Link>
+          <Link href={"/donate"}>Donate</Link>
         </li>
         {renderIconsIfOnClient(isClient)}
       </ul>
