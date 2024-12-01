@@ -199,6 +199,7 @@ export default function DonationForm() {
               onApprove={onApprove}
               disabled={!amount || !purpose}
               style={{ layout: "vertical" }}
+              forceReRender={[amount, purpose]}
             />
           </div>
         </div>
