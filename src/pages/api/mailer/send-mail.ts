@@ -2,6 +2,7 @@ import { type NextApiResponse, type NextApiRequest } from "next";
 import nodemailer from "nodemailer";
 
 // TODO(steevejoseph): Set these in the .env file when we have
+// Issue URL: https://github.com/steevejoseph/foundation-of-lights/issues/7
 // the masjid gmail account
 const env = {
   EMAIL_HOST: process.env.EMAIL_HOST,
