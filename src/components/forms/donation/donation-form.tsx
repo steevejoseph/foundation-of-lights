@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useRouter } from "next/router";
 import { type OrderResponse } from "./types";
@@ -22,23 +22,45 @@ export default function DonationForm() {
   const [error, setError] = useState("");
   const [note, setNote] = useState("");
   const router = useRouter();
+  const amountRef = useRef(amount);
+  const purposeRef = useRef(purpose);
+
+  useEffect(() => {
+    amountRef.current = amount;
+  }, [amount]);
+
+  useEffect(() => {
+    purposeRef.current = purpose;
+  }, [purpose]);
 
   const createOrder = async () => {
+    const currentAmount = amountRef.current;
+    const currentPurpose = purposeRef.current;
+
+    console.log("State values at createOrder:", {
+      amount: currentAmount,
+      purpose: currentPurpose,
+      typeofAmount: typeof currentAmount,
+      typeofPurpose: typeof currentPurpose,
+    });
+
+    const orderDetails = {
+      amount: currentAmount,
+      purpose: currentPurpose,
+    };
+
+    console.log("Order details before API call:", orderDetails);
+
     try {
       const response = await fetch("/api/paypal/create-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          amount,
-          purpose,
-        }),
+        body: JSON.stringify(orderDetails),
       });
 
-      const data = (await response.json()) as {
-        id: string;
-      };
+      const data = (await response.json()) as { id: string };
       return data.id;
     } catch (err) {
       setError("Failed to create order");
@@ -161,7 +183,10 @@ export default function DonationForm() {
             <PayPalButtons
               createOrder={createOrder}
               onApprove={onApprove}
-              disabled={loading || !amount || !purpose}
+              disabled={
+                !amount || !purpose || purpose === DonationPurpose.BLANK
+              }
+              style={{ layout: "vertical" }}
             />
           </div>
         </div>
