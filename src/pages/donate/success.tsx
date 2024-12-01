@@ -27,8 +27,14 @@ const DonateSuccessPage: NextPage = () => {
           Your payment was processed successfully. We truly appreciate your
           support!
         </p>
-        <p className="mb-8 text-gray-600">Transaction ID: {transactionId}</p>
-        <p className="mb-8 text-gray-600">Transaction Status: {status}</p>
+        {transactionId && (
+          <p className="mb-8 text-gray-600">Transaction ID: {transactionId}</p>
+        )}
+
+        {status && (
+          <p className="mb-8 text-gray-600">Transaction Status: {status}</p>
+        )}
+
         <Link
           href="/"
           className="inline-block rounded-md bg-green-500 px-6 py-2 text-white transition-colors hover:bg-green-600"
