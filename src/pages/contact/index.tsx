@@ -2,7 +2,6 @@ import Layout from "src/components/Layout";
 import MyForm from "src/components/forms/contact-form";
 import styles from "./contact.module.css";
 import Link from "next/link";
-import { env } from "src/env";
 
 const Contact = () => {
   return (
@@ -21,7 +20,7 @@ const Contact = () => {
           <p>
             Questions about membership? Please fill out the{" "}
             <Link
-              href={env.NEXT_PUBLIC_MEMBERSHIP_FORM_URL}
+              href="/forms"
               target="_blank"
               style={{ color: "#0066cc", textDecoration: "underline" }}
             >
@@ -31,11 +30,11 @@ const Contact = () => {
           <p>
             Questions about zakat? Please fill out the{" "}
             <Link
-              href={env.NEXT_PUBLIC_ZAKAT_FORM_URL}
+              href="/forms"
               target="_blank"
               style={{ color: "#0066cc", textDecoration: "underline" }}
             >
-              Foundation of Lights Zakat Request application
+              Foundation of Lights Membership application
             </Link>
           </p>
         </div>

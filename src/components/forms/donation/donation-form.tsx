@@ -181,7 +181,7 @@ export default function DonationForm() {
             <PayPalButtons
               createOrder={createOrder}
               onApprove={onApprove}
-              disabled={!amount || !purpose}
+              disabled={!amount || !purpose || loading}
               style={{ layout: "vertical" }}
             />
           </div>
