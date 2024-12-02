@@ -104,86 +104,95 @@ export default function DonationForm() {
         currency: "USD",
       }}
     >
-      <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-6 text-2xl font-bold">Make a Donation</h2>
-        <div className="space-y-4">
-          <div className="flex items-center gap-4">
-            <label
-              htmlFor="amount"
-              className="w-24 text-left text-sm font-medium text-gray-700"
-            >
-              Amount (USD)
-            </label>
-            <div className="relative flex-1">
-              <span className="absolute left-3 top-[50%] -translate-y-[40%] text-gray-500">
-                $
-              </span>
-              <input
-                type="number"
-                id="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 pl-6 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Enter amount"
-                min="1"
-                step="0.01"
-                required
-              />
-            </div>
+      <div className="relative">
+        {loading && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="text-lg text-white">Processing request...</div>
           </div>
-
-          <div className="flex items-center gap-4">
-            <label
-              htmlFor="purpose"
-              className="w-24 text-left text-sm font-medium text-gray-700"
-            >
-              Purpose
-            </label>
-            <div className="flex-1">
-              <select
-                id="purpose"
-                value={purpose}
-                onChange={(e) => setPurpose(e.target.value as DonationPurpose)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                required
+        )}
+        <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
+          <h2 className="mb-6 text-2xl font-bold">Make a Donation</h2>
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <label
+                htmlFor="amount"
+                className="w-24 text-left text-sm font-medium text-gray-700"
               >
-                {Object.values(DonationPurpose).map((value) => (
-                  <option key={value} value={value}>
-                    {value || "Select purpose"}
-                  </option>
-                ))}
-              </select>
+                Amount (USD)
+              </label>
+              <div className="relative flex-1">
+                <span className="absolute left-3 top-[50%] -translate-y-[40%] text-gray-500">
+                  $
+                </span>
+                <input
+                  type="number"
+                  id="amount"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  className="mt-1 block w-full rounded-md border-gray-300 pl-6 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  placeholder="Enter amount"
+                  min="1"
+                  step="0.01"
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <label
-              htmlFor="note"
-              className="w-24 text-left text-sm font-medium text-gray-700"
-            >
-              Note
-            </label>
-            <div className="flex-1">
-              <input
-                type="text"
-                id="note"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Optional message"
+            <div className="flex items-center gap-4">
+              <label
+                htmlFor="purpose"
+                className="w-24 text-left text-sm font-medium text-gray-700"
+              >
+                Purpose
+              </label>
+              <div className="flex-1">
+                <select
+                  id="purpose"
+                  value={purpose}
+                  onChange={(e) =>
+                    setPurpose(e.target.value as DonationPurpose)
+                  }
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  required
+                >
+                  {Object.values(DonationPurpose).map((value) => (
+                    <option key={value} value={value}>
+                      {value || "Select purpose"}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <label
+                htmlFor="note"
+                className="w-24 text-left text-sm font-medium text-gray-700"
+              >
+                Note
+              </label>
+              <div className="flex-1">
+                <input
+                  type="text"
+                  id="note"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  placeholder="Optional message"
+                />
+              </div>
+            </div>
+
+            {error && <div className="text-sm text-red-600">{error}</div>}
+
+            <div className="pt-4">
+              <PayPalButtons
+                createOrder={createOrder}
+                onApprove={onApprove}
+                disabled={!amount || !purpose || loading}
+                style={{ layout: "vertical" }}
               />
             </div>
-          </div>
-
-          {error && <div className="text-sm text-red-600">{error}</div>}
-
-          <div className="pt-4">
-            <PayPalButtons
-              createOrder={createOrder}
-              onApprove={onApprove}
-              disabled={!amount || !purpose || loading}
-              style={{ layout: "vertical" }}
-            />
           </div>
         </div>
       </div>
