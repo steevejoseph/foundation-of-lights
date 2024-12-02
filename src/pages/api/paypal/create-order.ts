@@ -17,9 +17,10 @@ export default async function handler(
   }
 
   try {
-    const { amount, purpose } = req.body as {
+    const { amount, purpose, note } = req.body as {
       amount: string;
       purpose: string;
+      note: string;
     };
 
     console.log("amount", amount);
@@ -33,8 +34,8 @@ export default async function handler(
             currency_code: "USD",
             value: amount,
           },
-          description: purpose,
-          custom_id: purpose,
+          description: `${purpose} ${note}`,
+          custom_id: `${purpose} ${note}`,
         },
       ],
       application_context: {

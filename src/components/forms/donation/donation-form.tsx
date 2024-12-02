@@ -24,6 +24,7 @@ export default function DonationForm() {
   const router = useRouter();
   const amountRef = useRef(amount);
   const purposeRef = useRef(purpose);
+  const noteRef = useRef(note);
 
   useEffect(() => {
     amountRef.current = amount;
@@ -33,20 +34,24 @@ export default function DonationForm() {
     purposeRef.current = purpose;
   }, [purpose]);
 
+  useEffect(() => {
+    noteRef.current = note;
+  }, [note]);
+
   const createOrder = async () => {
     const currentAmount = amountRef.current;
     const currentPurpose = purposeRef.current;
-
+    const currentNote = noteRef.current;
     console.log("State values at createOrder:", {
       amount: currentAmount,
       purpose: currentPurpose,
-      typeofAmount: typeof currentAmount,
-      typeofPurpose: typeof currentPurpose,
+      note: currentNote,
     });
 
     const orderDetails = {
       amount: currentAmount,
       purpose: currentPurpose,
+      note: currentNote,
     };
 
     try {
