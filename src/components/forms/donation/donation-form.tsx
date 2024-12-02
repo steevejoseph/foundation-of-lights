@@ -5,6 +5,8 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useRouter } from "next/router";
 import { type OrderResponse } from "./types";
 import { env } from "~/env";
+import Link from "next/link";
+import { PAYPAL_URL } from "~/components/Navbar";
 
 enum DonationPurpose {
   BLANK = "",
@@ -32,7 +34,52 @@ export default function DonationForm() {
   useEffect(() => {
     purposeRef.current = purpose;
   }, [purpose]);
+  const renderPaypalButtonForSafariMobile = () => {
+    return (
+      <div className="text-center">
+        <Link
+          href={PAYPAL_URL}
+          target="_blank"
+          className="inline-block rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition duration-200 hover:bg-blue-700"
+        >
+          Donate via PayPal
+        </Link>
+      </div>
+    );
+  };
 
+  const useIsSafariMobile = () => {
+    const [isSafariMobile, setIsSafariMobile] = useState(false);
+
+    useEffect(() => {
+      const userAgent = navigator.userAgent;
+      const isSafari =
+        /^((?!chrome|android).)*safari/i.test(userAgent) &&
+        /iP(hone|od|ad)/i.test(userAgent); // Check for Safari and iOS devices
+
+      setIsSafariMobile(isSafari);
+    }, []);
+
+    return isSafariMobile;
+  };
+  const isSafariMobile = useIsSafariMobile();
+
+  const renderButtonBasedOnPlatform = () => {
+    if (isSafariMobile) {
+      return renderPaypalButtonForSafariMobile();
+    }
+    return (
+      <div className="pt-4">
+        <PayPalButtons
+          createOrder={createOrder}
+          onApprove={onApprove}
+          disabled={!amount || !purpose}
+          style={{ layout: "vertical" }}
+          forceReRender={[amount, purpose]}
+        />
+      </div>
+    );
+  };
   const createOrder = async () => {
     const currentAmount = amountRef.current;
     const currentPurpose = purposeRef.current;
@@ -176,15 +223,7 @@ export default function DonationForm() {
           </div>
 
           {error && <div className="text-sm text-red-600">{error}</div>}
-
-          <div className="pt-4">
-            <PayPalButtons
-              createOrder={createOrder}
-              onApprove={onApprove}
-              disabled={!amount || !purpose}
-              style={{ layout: "vertical" }}
-            />
-          </div>
+          {renderButtonBasedOnPlatform()}
         </div>
       </div>
     </PayPalScriptProvider>
