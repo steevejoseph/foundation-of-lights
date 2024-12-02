@@ -25,30 +25,35 @@ const Masjid = () => {
               not without its challenges. It all began with a blessed idea that
               led to the incorporation of Foundation of Lights Inc. as a
               nonprofit organization in the State of Florida on November 17,
-              2003. About a year later, on September 22, 2004, the organization
+              2003. <br />
+              <br />
+              About a year later, on September 22, 2004, the organization
               acquired the historic United Oak Methodist Church building,
               located at 120 Floral Street in Ocoee, Florida, and meticulously
               transformed it into a masjid that radiates peace and tranquility.
               As word of the new establishment spread, many members of the
               community, near and far, were drawn to Masjid Al Tazkiah, and by
-              the grace of Allah, the congregation grew steadily. To ensure the
-              masjid’s continued success and smooth operations, a constant flow
-              of funds was necessary. On November 17, 2005, the Internal Revenue
-              Service graciously granted the organization a 501(c)(3) tax-exempt
-              status, making all donations tax deductible and encouraging
-              increased support. In a noble effort to create a verdant, inviting
-              oasis for worshippers, the organization acquired the property and
-              land at 102 Floral Street on November 10, 2008. With the influx of
-              devoted community members, additional space was needed to
-              accommodate the growing congregation. Acknowledging this, the
-              organization purchased 137 S Cumberland Avenue on November 21,
-              2011. Today, the Masjid is not only a place of worship but also a
-              beacon of hope and support for those in need. A Food Pantry
-              operates on the premises, generously providing sustenance to
-              low-income and needy families in the community regardless of their
-              religions, race and ethnicity. The story of Masjid Al Tazkiah is a
-              testament to the power of faith, unity, and perseverance in the
-              face of challenges, all under the watchful eyes of Allah.
+              the grace of Allah, the congregation grew steadily. <br />
+              <br />
+              To ensure the masjid’s continued success and smooth operations, a
+              constant flow of funds was necessary. On November 17, 2005, the
+              Internal Revenue Service graciously granted the organization a
+              501(c)(3) tax-exempt status, making all donations tax deductible
+              and encouraging increased support. In a noble effort to create a
+              verdant, inviting oasis for worshippers, the organization acquired
+              the property and land at 102 Floral Street on November 10, 2008.
+              With the influx of devoted community members, additional space was
+              needed to accommodate the growing congregation. Acknowledging
+              this, the organization purchased 137 S Cumberland Avenue on
+              November 21, 2011. <br />
+              <br />
+              Today, the Masjid is not only a place of worship but also a beacon
+              of hope and support for those in need. A Food Pantry operates on
+              the premises, generously providing sustenance to low-income and
+              needy families in the community regardless of their religions,
+              race and ethnicity. The story of Masjid Al Tazkiah is a testament
+              to the power of faith, unity, and perseverance in the face of
+              challenges, all under the watchful eyes of Allah.
             </p>
           </section>
 
@@ -75,7 +80,6 @@ const Masjid = () => {
               Islamic teachings to both Muslims and non-Muslims. Our spiritual
               vision is to pursue faith, knowledge, and righteousness in a
               peaceful and caring environment. <br /> <br />
-              We strive to be:
             </p>
             <div className="mt-4">
               <h3 className="mb-3 text-lg font-medium text-gray-800">
