@@ -17,11 +17,10 @@ const Footer = () => {
 
         <div className={styles.infoAboutDonate}>
           <h4 className={styles.aboutTitle}>About</h4>
-
-          <Link
-            href={"https://www.paypal.com/paypalme/foundationoflights"}
-            className={styles.donateLink}
-          >
+          <Link href={"/contact"} className={styles.donateLink}>
+            Contact Us
+          </Link>{" "}
+          <Link href={"/donate"} className={styles.donateLink}>
             Donate
           </Link>
         </div>

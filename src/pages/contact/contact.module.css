@@ -20,4 +20,18 @@
   .contact_info {
     margin-bottom: 2rem;
   }
+}
+
+.contact_info p,
+.contact_info strong {
+  margin-bottom: 1rem;
+}
+
+.contact_info h1 {
+  margin-bottom: 2rem;
+}
+
+.contact_info a {
+  display: block;
+  margin-bottom: 1rem;
 } 
