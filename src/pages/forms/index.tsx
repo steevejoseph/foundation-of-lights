@@ -21,6 +21,13 @@ const Forms = () => {
             >
               Go to Google Forms →
             </Link> */}
+            <Link
+              href="/forms/tazkiah-revised-membership-form.pdf"
+              className={styles.cardLink}
+              target="_blank"
+            >
+              View Form →
+            </Link>
             <a
               href="/forms/tazkiah-revised-membership-form.pdf"
               className={styles.cardLink}
@@ -40,6 +47,13 @@ const Forms = () => {
             >
               Go to Gooogle Forms →
             </Link> */}
+            <Link
+              href="/forms/zakat-request-form.pdf"
+              className={styles.cardLink}
+              target="_blank"
+            >
+              View Form →
+            </Link>{" "}
             <a
               href="/forms/zakat-request-form.pdf"
               className={styles.cardLink}

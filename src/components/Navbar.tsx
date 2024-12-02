@@ -123,6 +123,9 @@ const Navbar = () => {
               <li>
                 <Link href="/forms">Forms</Link>
               </li>
+              <li>
+                <Link href="/contact">Contact Us</Link>
+              </li>
             </ul>
           )}
         </li>
