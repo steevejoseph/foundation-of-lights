@@ -10,7 +10,7 @@ const Forms = () => {
         <h1 className={styles.title}>Forms</h1>
         <div className={styles.formGrid}>
           <div className={styles.formCard}>
-            <h2>Membership Form</h2>
+            <h2>Membership Google Form</h2>
             <p>
               Join our community by becoming a member. Fill out our membership
               form to get started.
@@ -25,7 +25,7 @@ const Forms = () => {
           </div>
 
           <div className={styles.formCard}>
-            <h2>Zakat Request Form</h2>
+            <h2>Zakat Request Google Form</h2>
             <p>Apply for Zakat assistance by completing our request form.</p>
             <Link
               href={env.NEXT_PUBLIC_ZAKAT_FORM_URL}
@@ -34,6 +34,37 @@ const Forms = () => {
             >
               Go to Form →
             </Link>
+          </div>
+
+          <div className={styles.formCard}>
+            <h2>Zakat Request Form</h2>
+            <p>
+              Download our Zakat request form if you wish to apply for Zakat
+              assistance. Please ensure all information is complete and
+              accurate.
+            </p>
+            <a
+              href="/forms/zakat-request-form.pdf"
+              className={styles.cardLink}
+              download
+            >
+              Download Form →
+            </a>
+          </div>
+
+          <div className={styles.formCard}>
+            <h2>Tazkiah Membership Form</h2>
+            <p>
+              Download our revised membership form to join Tazkiah. Please fill
+              out all required fields and submit as instructed on the form.
+            </p>
+            <a
+              href="/forms/tazkiah-revised-membership-form.pdf"
+              className={styles.cardLink}
+              download
+            >
+              Download Form →
+            </a>
           </div>
 
           <div className={styles.formCard}>
