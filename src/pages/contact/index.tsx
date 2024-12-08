@@ -14,7 +14,14 @@ const Contact = () => {
           <p>Ibrahim Habach</p>
 
           <strong>Email</strong>
-          <p> habach44@gmail.com</p>
+          <p>
+            <a
+              style={{ color: "#0066cc", textDecoration: "underline" }}
+              href="mailto:info@foundationoflights.org"
+            >
+              info@foundationoflights.org
+            </a>
+          </p>
           <strong>Phone</strong>
           <p> (407) 592-5000</p>
           <p>
