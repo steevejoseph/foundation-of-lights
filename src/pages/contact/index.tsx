@@ -16,7 +16,7 @@ const Contact = () => {
           <strong>Email</strong>
           <p>
             <a
-              style={{ color: "#0066cc", textDecoration: "underline" }}
+              style={{ color: "#2E7D32", textDecoration: "underline" }}
               href="mailto:info@foundationoflights.org"
             >
               info@foundationoflights.org
@@ -29,7 +29,7 @@ const Contact = () => {
             <Link
               href="/forms"
               target="_blank"
-              style={{ color: "#0066cc", textDecoration: "underline" }}
+              style={{ color: "#2E7D32", textDecoration: "underline" }}
             >
               Foundation of Lights Membership application
             </Link>
@@ -39,7 +39,7 @@ const Contact = () => {
             <Link
               href="/forms"
               target="_blank"
-              style={{ color: "#0066cc", textDecoration: "underline" }}
+              style={{ color: "#2E7D32", textDecoration: "underline" }}
             >
               Foundation of Lights Membership application
             </Link>
