@@ -11,7 +11,7 @@ const CalendarPage = () => {
         <div className="mb-4">
           <Link
             href="/events"
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+            className="flex items-center gap-2 text-green-600 hover:text-green-800"
           >
             <span>←</span> Back to Events
           </Link>

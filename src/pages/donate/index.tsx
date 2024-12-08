@@ -38,7 +38,7 @@ const Donate = () => {
             </ul>
           </div>
 
-          <blockquote className="my-8 border-l-4 border-blue-500 pl-4 italic text-gray-700">
+          <blockquote className="my-8 border-l-4 border-green-500 pl-4 italic text-gray-700">
             &quot;Giving away something in charity does not cause any decrease
             in a person&apos;s wealth, but increases it instead. The person who
             adopts humility for the sake of Allah is exalted in ranks by
