@@ -1,5 +1,5 @@
 import Layout from "src/components/Layout";
-import MyForm from "src/components/forms/contact-form";
+import MyForm from "src/components/forms/contact/contact-form";
 import styles from "./contact.module.css";
 import Link from "next/link";
 
