@@ -2,12 +2,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "./contact-form.module.css";
 import { sendContactEmail } from "./utils";
+import { toast } from "react-hot-toast";
 
 // Define a Zod validation schema
 const schema = z.object({
@@ -19,9 +20,12 @@ const schema = z.object({
 
 export type ContactFormData = z.infer<typeof schema>; // Type inference from Zod schema
 const MyForm: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
@@ -37,12 +41,16 @@ const MyForm: React.FC = () => {
   const onSubmit: SubmitHandler<ContactFormData> = async (
     data: ContactFormData,
   ) => {
-    console.log(data);
+    setIsSubmitting(true);
     try {
-      const emailResponse = await sendContactEmail(data);
-      console.log(emailResponse);
+      await sendContactEmail(data);
+      toast.success("Message sent successfully!");
+      reset();
     } catch (error) {
       console.error("Error sending email:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -98,8 +106,19 @@ const MyForm: React.FC = () => {
         )}
       </div>
 
-      <button type="submit" className={styles["submit-button"]}>
-        Submit
+      <button
+        type="submit"
+        className={`${styles["submit-button"]} ${isSubmitting ? styles.loading : ""}`}
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? (
+          <>
+            <span className={styles.spinner}></span>
+            Sending...
+          </>
+        ) : (
+          "Submit"
+        )}
       </button>
     </form>
   );
