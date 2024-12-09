@@ -11,6 +11,7 @@ export const createDonationEmailHtml = (
         <p>Thank you for your donation!</p>
       `;
 };
+
 export const sendDonationReceiptEmail = async (orderData: OrderResponse) => {
   const response = await fetch("/api/mailer/send-mail", {
     method: "POST",

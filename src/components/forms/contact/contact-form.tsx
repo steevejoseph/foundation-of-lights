@@ -7,34 +7,43 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "./contact-form.module.css";
+import { sendContactEmail } from "./utils";
 
 // Define a Zod validation schema
 const schema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters"),
+  firstName: z.string().min(3, "First Name must be at least 3 characters"),
+  lastName: z.string().min(3, "Last Name must be at least 3 characters"),
   email: z.string().email("Please enter a valid email"),
-  //   age: z.number().min(18, "You must be at least 18 years old"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-type FormData = z.infer<typeof schema>; // Type inference from Zod schema
+export type ContactFormData = z.infer<typeof schema>; // Type inference from Zod schema
 const MyForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      //   age: 0,
       message: "",
     },
   });
 
   // Submit handler
-  const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
+  const onSubmit: SubmitHandler<ContactFormData> = async (
+    data: ContactFormData,
+  ) => {
     console.log(data);
+    try {
+      const emailResponse = await sendContactEmail(data);
+      console.log(emailResponse);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
@@ -45,17 +54,22 @@ const MyForm: React.FC = () => {
         </label>
         <div className={styles["name-inputs"]}>
           <div className={styles["input-group"]}>
-            <input id="firstName" type="text" {...register("name")} />
+            <input id="firstName" type="text" {...register("firstName")} />
             <label htmlFor="firstName">First Name</label>
           </div>
           <div className={styles["input-group"]}>
-            <input id="lastName" type="text" {...register("name")} />
+            <input id="lastName" type="text" {...register("lastName")} />
             <label htmlFor="lastName">Last Name</label>
           </div>
         </div>
-        {errors.name && (
+        {errors.firstName && (
           <p className={styles.error}>
-            {errors.name.message ?? "Invalid name"}
+            {errors.firstName.message ?? "Invalid first name"}
+          </p>
+        )}
+        {errors.lastName && (
+          <p className={styles.error}>
+            {errors.lastName.message ?? "Invalid last name"}
           </p>
         )}
       </div>

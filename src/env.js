@@ -9,6 +9,7 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
     NEXT_PAYPAL_CLIENT_SECRET: z.string(),
+    NEXT_SENDGRID_INFO_API_KEY: z.string(),
   },
 
   /**
@@ -26,6 +27,8 @@ export const env = createEnv({
     NEXT_PUBLIC_MEMBERSHIP_FORM_URL: z.string(),
     NEXT_PUBLIC_ZAKAT_FORM_URL: z.string(),
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: z.string(),
+    NEXT_PUBLIC_INFO_EMAIL: z.string(),
+    NEXT_PUBLIC_CS_EMAIL: z.string(),
   },
 
   /**
@@ -51,6 +54,9 @@ export const env = createEnv({
 
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
     NEXT_PAYPAL_CLIENT_SECRET: process.env.NEXT_PAYPAL_CLIENT_SECRET,
+    NEXT_SENDGRID_INFO_API_KEY: process.env.NEXT_SENDGRID_INFO_API_KEY,
+    NEXT_PUBLIC_INFO_EMAIL: process.env.NEXT_PUBLIC_INFO_EMAIL,
+    NEXT_PUBLIC_CS_EMAIL: process.env.NEXT_PUBLIC_CS_EMAIL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

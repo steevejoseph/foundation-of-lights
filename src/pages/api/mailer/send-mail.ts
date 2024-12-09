@@ -1,22 +1,21 @@
 import { type NextApiResponse, type NextApiRequest } from "next";
-import nodemailer from "nodemailer";
+import sgMail from "@sendgrid/mail";
+import { env } from "src/env";
 
-// TODO(steevejoseph): Set these in the .env file when we have
-// Issue URL: https://github.com/steevejoseph/foundation-of-lights/issues/7
-// the masjid gmail account
-const env = {
-  EMAIL_HOST: process.env.EMAIL_HOST,
-  EMAIL_PORT: process.env.EMAIL_PORT,
-  EMAIL_SECURE: process.env.EMAIL_SECURE,
-  EMAIL_USER: process.env.EMAIL_USER,
-  EMAIL_PASS: process.env.EMAIL_PASS,
-  EMAIL_FROM: process.env.EMAIL_FROM,
-};
+// Configure SendGrid with API key
+
+if (!env.NEXT_SENDGRID_INFO_API_KEY) {
+  throw new Error(
+    "NEXT_SENDGRID_INFO_API_KEY is not set in environment variables",
+  );
+}
+sgMail.setApiKey(env.NEXT_SENDGRID_INFO_API_KEY);
 
 interface SendMailRequest {
   to: string;
   subject: string;
   html: string;
+  cc: string;
 }
 
 export default async function handler(
@@ -27,34 +26,22 @@ export default async function handler(
     res.status(405).json({ error: "Method not allowed" });
     return;
   }
+
   try {
-    const { to, subject, html } = req.body as SendMailRequest;
+    const { to, subject, html, cc } = req.body as SendMailRequest;
 
     console.log("Attempting to send email to:", to);
-    const transporter = nodemailer.createTransport({
-      host: env.EMAIL_HOST ?? "",
-      port: env.EMAIL_PORT ? parseInt(env.EMAIL_PORT, 10) : 587,
-      secure: env.EMAIL_SECURE === "true",
-      auth: {
-        user: env.EMAIL_USER,
-        pass: env.EMAIL_PASS,
-      },
-    });
 
-    await transporter.verify();
-    console.log("Connected to email server");
-
-    const info = await transporter.sendMail({
-      from: env.EMAIL_FROM,
+    const msg: sgMail.MailDataRequired = {
       to,
-      subject,
+      from: env.NEXT_PUBLIC_INFO_EMAIL,
+      cc,
       html,
-    });
+      subject,
+    };
 
-    console.log(`Message sent: ${info.messageId}, info:`, info);
-    console.log("Preview URL:", nodemailer.getTestMessageUrl(info));
-
-    res.status(200).json({ message: "Email sent", messageId: info.messageId });
+    await sgMail.send(msg);
+    res.status(200).json({ message: "Email sent successfully" });
   } catch (err) {
     const error = err as Error;
     console.error(`Error sending email: ${error}`);
